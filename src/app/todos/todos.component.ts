@@ -50,19 +50,25 @@ export class TodosComponent implements OnInit {
   }
 
 
-  eliminar(id){
+  eliminar(){
 
 
   }
   
-  insertarTarea(id){
-
+  insertarTarea(){
 
 
   }
-tachar(){
+tachar(result : any ){
 
+  let elemento:Todo;
+  result.forEach(el => {
+    elemento = new Todo( el.title );
+    elemento.id = el.id;
+     // el.id.scss.text-decoration:line-through;
+      this.todos.push(elemento);
 
+});
 
 }
 
