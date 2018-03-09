@@ -1,18 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { TodosComponent } from './todos/todos.component';
+import { AppRouter } from './app.route';
+import { TodosService } from './providers/todosservice';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodosComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRouter
   ],
-  providers: [],
+  providers: [HttpClientModule,TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
