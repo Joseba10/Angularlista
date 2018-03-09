@@ -54,11 +54,21 @@ export class TodosComponent implements OnInit {
 
 
   }
-  
-  insertarTarea(){
+  /*
+  insertarTarea(result : any ){
 
+    let nuevatarea:Todo;
+    result.forEach(el => {
+      nuevatarea = new Todo( el.title );
+      nuevatarea.id = el.id;
+      nuevatarea.idUser = el.userId;
+      nuevatarea.completed = el.completed;
+console.log("Ha pasado por aqui");
+        this.todos.push(nuevatarea);
 
-  }
+  });
+}
+*/
 tachar(result : any ){
 
   let elemento:Todo;
