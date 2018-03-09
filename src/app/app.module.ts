@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
@@ -17,7 +19,8 @@ import { TodosService } from './providers/todosservice';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRouter
+    AppRouter,
+    FormsModule
   ],
   providers: [HttpClientModule,TodosService],
   bootstrap: [AppComponent]

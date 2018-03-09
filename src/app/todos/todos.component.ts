@@ -11,6 +11,7 @@ import { TodosService } from '../providers/todosservice';
 export class TodosComponent implements OnInit {
 
   todos : Todo[];
+  nuevatarea:string;
 
   constructor( public todosService:TodosService ) {
       console.log('TodosComponent constructor');
@@ -51,9 +52,18 @@ export class TodosComponent implements OnInit {
 
   eliminar(id){
 
-    
+
   }
   
+  insertarTarea(id){
 
+
+
+  }
+tachar(){
+
+
+
+}
 
 }

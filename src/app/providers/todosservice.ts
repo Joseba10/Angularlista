@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
-const END_POINT = "https://jsonplaceholder.typicode.com";
+const END_POINT = "http://localhost:3004";
 
 
 @Injectable()

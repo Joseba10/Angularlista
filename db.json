@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "todos": [
+    {
+      "id": 2,
+      "userid": 2,
+      "title": "Aprender  Angular",
+      "completed": false
+    },
+    {
+      "userid": 2,
+      "title": "Prueba desde Postman",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "userid": 1,
+      "title": "Prueba desde Postman",
+      "completed": false,
+      "id": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
