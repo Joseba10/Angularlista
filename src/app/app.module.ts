@@ -11,16 +11,20 @@ import { TodosService } from './providers/todosservice';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent
+    TodosComponent,
+
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRouter,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [HttpClientModule,TodosService],
   bootstrap: [AppComponent]

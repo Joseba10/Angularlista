@@ -10,12 +10,12 @@ import { TodosService } from '../providers/todosservice';
 })
 export class TodosComponent implements OnInit {
 
-  todos : Todo[];
-  nuevatarea:string;
+  todos: Todo[];
+  nuevatarea: string;
 
-  constructor( public todosService:TodosService ) {
-      console.log('TodosComponent constructor');
-      this.todos = [];
+  constructor(public todosService: TodosService) {
+    console.log('TodosComponent constructor');
+    this.todos = [];
   }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class TodosComponent implements OnInit {
         console.debug('peticion correcta %o', resultado);
         this.mapeo(resultado);
       },
-      error=>{
+      error => {
         console.warn('peticion incorrecta %o', error);
       }
     );//subscribe
@@ -35,51 +35,73 @@ export class TodosComponent implements OnInit {
    * Mapea los Datos en formato Json a Todo que proviene del Servicio Rest
    * @param resultado : any 
    */
-  mapeo( result : any ){
+  mapeo(result: any) {
 
-    let todo:Todo;
+    let todo: Todo;
     result.forEach(el => {
-        todo = new Todo( el.title );
-        todo.id = el.id;
-        todo.idUser = el.userId;
-        todo.completed = el.completed;
+      todo = new Todo(el.title);
+      todo.id = el.id;
+      todo.idUser = el.userId;
+      todo.completed = el.completed;
 
-        this.todos.push(todo);
+      this.todos.push(todo);
     });
 
   }
+  cargarTareas(){
+    console.log('TodosComponent cargarTareas');
+    this.todos = [];
+    this.todosService.getTodos().subscribe(
+      resultado => {
+        console.debug('peticion correcta %o', resultado);
+        this.mapeo(resultado);
+      },
+      error=>{
+        console.warn('peticion incorrecta %o', error);
+      }
+    );//subscribe
+}
 
+  eliminar(todo:Todo){
+    console.log('TodosComponent delete %o', todo );
 
-  eliminar(){
+    this.todosService.delete(todo.id).subscribe(
+      result=>{
+        this.cargarTareas();
+      },
+      error=>{
+        alert('No se pudo eliminar Tarea');
+      }
+    );
+    
 
+}
 
-  }
-  /*
-  insertarTarea(result : any ){
-
-    let nuevatarea:Todo;
-    result.forEach(el => {
-      nuevatarea = new Todo( el.title );
-      nuevatarea.id = el.id;
-      nuevatarea.idUser = el.userId;
-      nuevatarea.completed = el.completed;
-console.log("Ha pasado por aqui");
-        this.todos.push(nuevatarea);
-
+change(todo:Todo){
+  console.log('TodosComponent change %o', todo );
+  this.todos.forEach( (t, index) =>{
+    if ( t.id === todo.id ){
+      this.todos[index].completed = !todo.completed;
+      return false; //break        
+    }
   });
 }
-*/
-tachar(result : any ){
+ 
+ 
+  new(){
+  console.log('TodosComponent new ');
+  let todo = new Todo(this.nuevatarea);
 
-  let elemento:Todo;
-  result.forEach(el => {
-    elemento = new Todo( el.title );
-    elemento.id = el.id;
-     // el.id.scss.text-decoration:line-through;
-      this.todos.push(elemento);
-
-});
-
+  this.todosService.post(todo).subscribe(
+    result=>{
+      console.log('TodosComponent new %o', result);
+      this.cargarTareas();
+    },
+    error=>{
+      alert('No de pudo Crear Nueva Tarea');
+      console.error(error);
+    }
+  );
 }
 
 }
