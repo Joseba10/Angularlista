@@ -1,5 +1,6 @@
-# Angular con Postman
+# Angular Server local o con Postman
 
+Para hacerlo con Postman solo tienes que cambiar la url al servicio que quieras.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
 
 
