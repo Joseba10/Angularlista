@@ -4,7 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { Todo } from '../model/todo';
 
 const END_POINT = "http://localhost:3000";
-
+/*Tienes que iniciar el servidor JSON,que contiene los datos
+del archivo JSON, el comando es json-server --watch db.json*/
 
 @Injectable()
 export class TodosService {
