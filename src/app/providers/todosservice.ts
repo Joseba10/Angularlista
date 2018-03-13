@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Todo } from '../model/todo';
 
-const END_POINT = "http://localhost:3004";
+const END_POINT = "http://localhost:3000";
 
 
 @Injectable()

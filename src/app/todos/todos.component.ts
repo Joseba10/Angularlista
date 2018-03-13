@@ -98,7 +98,7 @@ change(todo:Todo){
       this.cargarTareas();
     },
     error=>{
-      alert('No de pudo Crear Nueva Tarea');
+      alert('No se pudo Crear Nueva Tarea');
       console.error(error);
     }
   );

@@ -41,7 +41,7 @@
     {
       "userId": -1,
       "title": "Nueva tarea",
-      "completed": false,
+      "completed": true,
       "id": 89
     }
   ],
